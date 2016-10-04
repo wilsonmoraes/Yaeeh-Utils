@@ -49,3 +49,25 @@ private validarCPF(cpf: string) {
             return true;
         }
     }
+
+
+/**
+     *
+     * @param nascimento receive: 'dd/mm/yyyy'
+     * @returns {boolean}
+     */
+    private validarNascimentoDDMMYYYY(nascimento: string) {
+        nascimento = nascimento.replace(/[^\d]+/g, '');
+        if (nascimento.length != 8) {
+            return false;
+        }
+        let dia: string = nascimento.substring(0, 2);
+        let mes: string = nascimento.substring(2, 4);
+        let ano: string = nascimento.substring(4, 8);
+
+        let nascimentoDate: Date = new Date(parseInt(ano), parseInt(mes), parseInt(dia));
+        if (new Date() < nascimentoDate) {
+            return false;
+        }
+        return true;
+    }
