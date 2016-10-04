@@ -118,15 +118,7 @@ private validarCPF(cpf: string) {
         }
 
 
-        //  E por ultimo verificar se o numero é realmente válido. Até 2016 um celular pode
-        //ter 8 caracteres, após isso somente numeros de telefone e radios (ex. Nextel)
-        //vão poder ter numeros de 8 digitos (fora o DDD), então esta função ficará inativa
-        //até o fim de 2016, e se a ANATEL realmente cumprir o combinado, os numeros serão
-        //validados corretamente após esse período.
-        //NÃO ADICIONEI A VALIDAÇÂO DE QUAIS ESTADOS TEM NONO DIGITO, PQ DEPOIS DE 2016 ISSO NÃO FARÁ DIFERENÇA
-        //Não se preocupe, o código irá ativar e desativar esta opção automaticamente.
-        //Caso queira, em 2017, é só tirar o if.
-        //if(new Date().getFullYear() < 2017) return true;
+        //  E por ultimo verificar se o numero é realmente válido.
         if (telefone.length == 10 && [2, 3, 4, 5, 7].indexOf(parseInt(telefone.substring(2, 3))) == -1) {
             return false;
         }
