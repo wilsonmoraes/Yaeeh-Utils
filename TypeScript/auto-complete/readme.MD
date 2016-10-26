@@ -4,6 +4,14 @@ title: auto-complete-ionic2
 
 # simples yaee-auto-complete for ionic2 RC
 
+
+## Events
+
+- __onSelect__: Callback to invoke when a suggestion is selected.
+
+- __onUnselect__: Callback to invoke when a selected value is removed.
+
+
 ## Package only for reference
 - @angular/common: 2.1.1
 - @angular/compiler: 2.1.1
@@ -48,7 +56,6 @@ In your app module:
 export class AppModule {
 }
 ```
-
 In your component declare:
 
 ```html
@@ -57,4 +64,15 @@ In your component declare:
     [dataProvider]="yourServiceProvider">
   </yaee-auto-complete>
 ```
+Example of implementsYaeeAutoCompleteService:
 
+```js
+@Injectable()
+export class SalesmanService implements YaeeAutoCompleteService {
+  labelAttribute: string = 'salesmanName';
+
+  getResults(term: any): any {
+    return this.customDB.queryAll('SELECT * FROM salesman WHERE salesmanName LIKE ?  ORDER BY salesmanName limit 20', ["%" + term + "%"]);
+    }    
+ }
+```
