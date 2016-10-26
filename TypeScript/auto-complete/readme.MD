@@ -76,3 +76,4 @@ export class SalesmanService implements YaeeAutoCompleteService {
     }    
  }
 ```
+Based on: https://github.com/kadoshms/ionic2-autocomplete
