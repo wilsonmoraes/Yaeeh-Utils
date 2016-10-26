@@ -1,0 +1,18 @@
+yaee-auto-complete {
+  display: block !important;
+  overflow: hidden !important;
+}
+
+yaee-auto-complete ion-list {
+  margin: 8px !important;
+  margin-top: -8px !important;
+  border: 1px solid #dedede !important;
+}
+
+yaee-auto-complete ion-item {
+}
+
+yaee-auto-complete ion-item:hover {
+  background: #f1f1f1 !important;
+  cursor: pointer !important;
+}
