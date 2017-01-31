@@ -54,16 +54,32 @@ after:
 <y-ultima-inputText [label]="'Nome'" [childControl]="form.controls.nome" [colspan]="8"></y-ultima-inputText>
 ```
 ---
-Example of implementsYaeeAutoCompleteService:
 
-```js
-@Injectable()
-export class SalesmanService implements YaeeAutoCompleteService {
-  labelAttribute: string = 'salesmanName';
 
-  getResults(term: any): any {
-    return this.customDB.queryAll('SELECT * FROM salesman WHERE salesmanName LIKE ?  ORDER BY salesmanName limit 20', ["%" + term + "%"]);
-    }    
- }
+Example with InputMask:
+
+before...
+```html
+<div class="ui-g-12 ui-md-3">
+<span class="md-inputfield">
+   <p-inputMask
+     mask="99.999-999"
+     [style]="{'width':'100%'}"
+     type="text" pInputText
+     formControlName="cep"></p-inputMask>
+    <label>CEP</label>
+    <div *ngIf="form.controls.cep.errors?.required && form.controls.cep.touched" 
+          class="ui-message ui-messages-error ui-corner-all">
+          CEP obrigatório
+      </div>
+</span>
+</div>
 ```
-Based on: https://github.com/kadoshms/ionic2-autocomplete
+after:
+```html
+<y-ultima-inputMask  mask="99.999-999"
+                     [label]="'CEP'"
+                     [colspan]="3"
+                     [childControl]="convenioForm.controls.cep"></y-ultima-inputMask>
+```
+---
