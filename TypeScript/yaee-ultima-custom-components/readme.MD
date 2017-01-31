@@ -6,7 +6,7 @@
 - __ReactiveFormsModule__: These components have not been tested with Template Driven Form.
 
 
-## this require
+## Require
 - primeng: 2.0.0-rc-2
 - ultima template
 - angular 2
