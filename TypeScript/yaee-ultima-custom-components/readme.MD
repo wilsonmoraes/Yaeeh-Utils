@@ -1,4 +1,4 @@
-# Custom components to use with the ultima template from primetek with Angular 2
+# Custom components to use with the [ultima template](http://www.primefaces.org/ultima-ng/#/) with Angular 2
 
 
 ## Obs
