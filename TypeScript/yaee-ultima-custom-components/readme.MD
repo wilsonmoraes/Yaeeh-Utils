@@ -55,7 +55,6 @@ after:
 ```
 ---
 
-
 Example with InputMask:
 
 before...
@@ -81,5 +80,19 @@ after:
                      [label]="'CEP'"
                      [colspan]="3"
                      [childControl]="convenioForm.controls.cep"></y-ultima-inputMask>
+```
+---
+
+Example with Col:
+
+before...
+```html
+<div class="ui-g-12 ui-md-3">
+</div>
+```
+after:
+```html
+<y-ultima-col [span]="3">
+</y-ultima-col>
 ```
 ---
