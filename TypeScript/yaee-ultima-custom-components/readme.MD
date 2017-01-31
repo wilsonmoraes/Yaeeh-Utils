@@ -31,14 +31,28 @@ In your app module:
 export class AppModule {
 }
 ```
-In your component declare:
+Examples:
 
+InputText before...
 ```html
-<yaee-auto-complete
-    [queryDescription]="'Customized description:'"
-    [dataProvider]="yourServiceProvider">
-  </yaee-auto-complete>
+<div class="ui-g-12 ui-md-8">
+  <span class="md-inputfield">
+      <input style="width:100%;"
+             maxlength="100"
+             type="text" pInputText
+             formControlName="nome">
+      <label>Nome</label>
+    <div *ngIf="form.controls.nome.errors?.required && form.controls.nome.touched" class="ui-message ui-messages-error ui-corner-all">
+          Campo obrigatório
+      </div>
+  </span>
+</div>
 ```
+using y-ultima-inputText:
+```html
+<y-ultima-inputText [label]="'Nome'" [childControl]="form.controls.nome" [colspan]="8"></y-ultima-inputText>
+```
+---
 Example of implementsYaeeAutoCompleteService:
 
 ```js
