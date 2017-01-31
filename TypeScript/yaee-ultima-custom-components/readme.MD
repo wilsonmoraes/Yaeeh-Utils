@@ -13,7 +13,7 @@
 
 How use:
 
-In your app module:
+Just download this folder, add into your project and In your app module:
 
 ```js
 @NgModule({
