@@ -31,9 +31,9 @@ In your app module:
 export class AppModule {
 }
 ```
-Examples:
+Example with InputText:
 
-InputText before...
+before...
 ```html
 <div class="ui-g-12 ui-md-8">
   <span class="md-inputfield">
@@ -49,7 +49,7 @@ InputText before...
   </span>
 </div>
 ```
-using y-ultima-inputText:
+after:
 ```html
 <y-ultima-inputText [label]="'Nome'" [childControl]="form.controls.nome" [colspan]="8"></y-ultima-inputText>
 ```
