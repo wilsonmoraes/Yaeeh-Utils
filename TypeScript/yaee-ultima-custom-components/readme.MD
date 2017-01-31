@@ -42,7 +42,8 @@ InputText before...
              type="text" pInputText
              formControlName="nome">
       <label>Nome</label>
-    <div *ngIf="form.controls.nome.errors?.required && form.controls.nome.touched" class="ui-message ui-messages-error ui-corner-all">
+    <div *ngIf="form.controls.nome.errors?.required && form.controls.nome.touched" 
+          class="ui-message ui-messages-error ui-corner-all">
           Campo obrigatório
       </div>
   </span>
