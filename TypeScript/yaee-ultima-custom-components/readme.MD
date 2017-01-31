@@ -1,35 +1,15 @@
----
-title: auto-complete-ionic2
----
-
-# simples yaee-auto-complete for ionic2 RC
+# Custom components to use with the ultima template from primetek with Angular 2
 
 
-## Events
+## Obs
 
-- __onSelect__: Callback to invoke when a suggestion is selected.
-
-- __onUnselect__: Callback to invoke when a selected value is removed.
+- __ReactiveFormsModule__: These components have not been tested with Template Driven Form.
 
 
-## Package only for reference
-- @angular/common: 2.1.1
-- @angular/compiler: 2.1.1
-- @angular/compiler-cli: 0.6.2
-- @angular/core: 2.1.1
-- @angular/forms: 2.1.1
-- @angular/http: 2.1.1
-- @angular/platform-browser: 2.1.1
-- @angular/platform-browser-dynamic: 2.1.1
-- @angular/platform-server: 2.1.1
-- @ionic/storage: 1.1.6
-- ionic-angular: 2.0.0-rc.1
-- ionic-native: 2.2.4
-- ionicons: 3.0.0
-- rxjs: 5.0.0-beta.12
-- zone.js: 0.6.26
-- moment: 2.15.1
-- reflect-metadata: 0.1.8
+## this require
+- primeng: 2.0.0-rc-2
+- ultima template
+- angular 2
 
 How use:
 
@@ -37,21 +17,16 @@ In your app module:
 
 ```js
 @NgModule({
-  declarations: [
-    MyApp,
-    YAEE_AUTOCOMPLETE_DIRECTIVES,
-    ....
-  ],
-  bootstrap: [IonicApp],
   imports: [
-    IonicModule.forRoot(MyApp)
-  ],
-  entryComponents: [
-    MyApp,
+    YaeeSharedModule,
     ....
   ],
-  providers: [VendedorService]
-
+  declarations: [],
+  providers: [],
+  exports: [
+    YaeeSharedModule,
+    ....
+  ]
 })
 export class AppModule {
 }
