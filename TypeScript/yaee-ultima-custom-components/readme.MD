@@ -1,79 +1,98 @@
----
-title: auto-complete-ionic2
----
-
-# simples yaee-auto-complete for ionic2 RC
+# Custom components to use with the [Ultima template](http://www.primefaces.org/ultima-ng/#/)
 
 
-## Events
+## Obs
 
-- __onSelect__: Callback to invoke when a suggestion is selected.
-
-- __onUnselect__: Callback to invoke when a selected value is removed.
+- __ReactiveFormsModule__: These components have not been tested with Template Driven Form.
 
 
-## Package only for reference
-- @angular/common: 2.1.1
-- @angular/compiler: 2.1.1
-- @angular/compiler-cli: 0.6.2
-- @angular/core: 2.1.1
-- @angular/forms: 2.1.1
-- @angular/http: 2.1.1
-- @angular/platform-browser: 2.1.1
-- @angular/platform-browser-dynamic: 2.1.1
-- @angular/platform-server: 2.1.1
-- @ionic/storage: 1.1.6
-- ionic-angular: 2.0.0-rc.1
-- ionic-native: 2.2.4
-- ionicons: 3.0.0
-- rxjs: 5.0.0-beta.12
-- zone.js: 0.6.26
-- moment: 2.15.1
-- reflect-metadata: 0.1.8
+## Require
+- primeng: 2.0.0-rc-2
+- ultima template
+- angular 2
 
 How use:
 
-In your app module:
+Just download this folder, add into your project and In your app module:
 
 ```js
 @NgModule({
-  declarations: [
-    MyApp,
-    YAEE_AUTOCOMPLETE_DIRECTIVES,
-    ....
-  ],
-  bootstrap: [IonicApp],
   imports: [
-    IonicModule.forRoot(MyApp)
-  ],
-  entryComponents: [
-    MyApp,
+    YaeeSharedModule,
     ....
   ],
-  providers: [VendedorService]
-
+  declarations: [],
+  providers: [],
+  exports: [
+    YaeeSharedModule,
+    ....
+  ]
 })
 export class AppModule {
 }
 ```
-In your component declare:
+Example with InputText:
 
+before...
 ```html
-<yaee-auto-complete
-    [queryDescription]="'Customized description:'"
-    [dataProvider]="yourServiceProvider">
-  </yaee-auto-complete>
+<div class="ui-g-12 ui-md-8">
+  <span class="md-inputfield">
+      <input style="width:100%;"
+             maxlength="100"
+             type="text" pInputText
+             formControlName="nome">
+      <label>Nome</label>
+    <div *ngIf="form.controls.nome.errors?.required && form.controls.nome.touched" 
+          class="ui-message ui-messages-error ui-corner-all">
+          Campo obrigatório
+      </div>
+  </span>
+</div>
 ```
-Example of implementsYaeeAutoCompleteService:
-
-```js
-@Injectable()
-export class SalesmanService implements YaeeAutoCompleteService {
-  labelAttribute: string = 'salesmanName';
-
-  getResults(term: any): any {
-    return this.customDB.queryAll('SELECT * FROM salesman WHERE salesmanName LIKE ?  ORDER BY salesmanName limit 20', ["%" + term + "%"]);
-    }    
- }
+after:
+```html
+<y-ultima-inputText [label]="'Nome'" [childControl]="form.controls.nome" [colspan]="8"></y-ultima-inputText>
 ```
-Based on: https://github.com/kadoshms/ionic2-autocomplete
+---
+
+Example with InputMask:
+
+before...
+```html
+<div class="ui-g-12 ui-md-3">
+<span class="md-inputfield">
+   <p-inputMask
+     mask="99.999-999"
+     [style]="{'width':'100%'}"
+     type="text" pInputText
+     formControlName="cep"></p-inputMask>
+    <label>CEP</label>
+    <div *ngIf="form.controls.cep.errors?.required && form.controls.cep.touched" 
+          class="ui-message ui-messages-error ui-corner-all">
+          CEP obrigatório
+      </div>
+</span>
+</div>
+```
+after:
+```html
+<y-ultima-inputMask  mask="99.999-999"
+                     [label]="'CEP'"
+                     [colspan]="3"
+                     [childControl]="convenioForm.controls.cep"></y-ultima-inputMask>
+```
+---
+
+Example with Col:
+
+before...
+```html
+<div class="ui-g-12 ui-md-3">
+</div>
+```
+after:
+```html
+<y-ultima-col [span]="3">
+</y-ultima-col>
+```
+---
