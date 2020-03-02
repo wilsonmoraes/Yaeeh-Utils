@@ -54,7 +54,7 @@ export class ArrayUtils {
      * @param source
      * @param objectValue
      * @param fieldInArray
-     * @returns {boolean}
+     * @returns array
      */
     public static sortByProperty<T>(array: T[], propName: string, order: 'ASC' | 'DESC'): T[] {
     array.sort((a, b) => {
