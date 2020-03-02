@@ -47,5 +47,38 @@ export class ArrayUtils {
     public static existInArray(source:any[], objectValue:any, fieldInArray:string):boolean {
         return ArrayUtils.findObjectInArray(source, objectValue, fieldInArray).length > 0;
     }
+    
+    /**
+     * Returns array sorting by property.
+     * Example : myArray:[]= sortByProperty(myArray, 'my.custom.property','ASC');
+     * @param source
+     * @param objectValue
+     * @param fieldInArray
+     * @returns {boolean}
+     */
+    public static sortByProperty<T>(array: T[], propName: string, order: 'ASC' | 'DESC'): T[] {
+    array.sort((a, b) => {
+      const valueA = propName.split('.').reduce((o, key) => {
+        return o[key];
+      }, a);
+
+      const valueB = propName.split('.').reduce((o, key) => {
+        return o[key];
+      }, b);
+
+      if (valueA < valueB) {
+        return -1;
+      } else if (valueA > valueB) {
+        return 1;
+      } else {
+        return 0;
+      }
+    });
+
+    if (order === 'DESC') {
+      array.reverse();
+    }
+    return array;
+  }
 
 }
